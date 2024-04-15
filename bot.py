@@ -12,8 +12,8 @@ janela = customtkinter.CTk()
 janela.geometry("400x200")
 
 # Configurações de e-mail
-email_user = 'relatorios4327@gmail.com'
-email_password = 'tzrzaeggvnitzopk'
+email_user = ''
+email_password = ''
 
 # Definindo as variáveis como globais
 global email_alerta
@@ -56,7 +56,7 @@ email_destinatario = email_alerta
 usuarioAlerta = nome_usuario
 
 def enviar_email():
-    global email_enviado  # Adicione esta linha
+    global email_enviado
 
     # Se o e-mail já foi enviado, saia da função
     if email_enviado:
@@ -70,7 +70,7 @@ def enviar_email():
     corpo_email = f"""
     <html>
     <body>
-        <p>Olá, João</p>
+        <p>Olá, FULANO</p>
         <p>Verificamos que o usuário {usuarioAlerta} teve acesso o serviço de biometria</p>
     </body>
     <html>
@@ -111,7 +111,7 @@ modal.click()
 
 while True:
     try:
-        # Verificar se o nome "João Luis" está presente
+        # Verificar se o nome do usuário está presente
         nome_xpath = WebDriverWait(driver, 120).until(EC.presence_of_element_located((By.XPATH, '/html/body/app-root/app-home/div/app-menu/div/mat-sidenav-container/mat-sidenav[2]/div/app-sidebar/div/mat-sidenav-container/mat-sidenav/div/div/div[1]/div/div[3]/div/span[1]')))
         nome = nome_xpath.text
         if nome == nome_usuario and not email_enviado:  # Adicione esta linha
